@@ -1,4 +1,3 @@
-
 /* ================== DADOS ================== */
 let currentLang = "pt";
 
@@ -8,63 +7,81 @@ const projetos = [
     imagem: "https://raw.githubusercontent.com/antoniobemjunior/portfolio/refs/heads/main/projeto1.png",
     descricao: "Livraria digital.",
     description: "Digital bookstore.",
-    tecnologias: ["HTML", "CSS"]
+    tecnologias: ["HTML", "CSS"],
+    aplicacao: "https://antoniobemjunior.github.io/alurabooks/",
+    github: "https://github.com/antoniobemjunior/alurabooks"
   },
   {
     titulo: "Wave Cast",
     imagem: "https://raw.githubusercontent.com/antoniobemjunior/portfolio/refs/heads/main/projeto9.png",
     descricao: "Plataforma de podcasts.",
     description: "Podcast platform.",
-    tecnologias: ["HTML", "CSS"]
+    tecnologias: ["HTML", "CSS"],
+    aplicacao: "https://antoniobemjunior.github.io/WaveCast/",
+    github: "https://github.com/antoniobemjunior/WaveCast"
   },
   {
     titulo: "Alura Play",
     imagem: "https://raw.githubusercontent.com/antoniobemjunior/portfolio/refs/heads/main/projeto3.png",
     descricao: "Site de streaming de vídeos.",
     description: "Video streaming site.",
-    tecnologias: ["HTML", "CSS"]
+    tecnologias: ["HTML", "CSS"],
+    aplicacao: "https://antoniobemjunior.github.io/AluraPlay/",
+    github: "https://github.com/antoniobemjunior/AluraPlay"
   },
   {
     titulo: "Alura Plus",
     imagem: "https://raw.githubusercontent.com/antoniobemjunior/portfolio/refs/heads/main/projeto4.png",
     descricao: "Landing page de venda de um serviço.",
     description: "Landing page for selling a service.",
-    tecnologias: ["HTML", "CSS"]
+    tecnologias: ["HTML", "CSS"],
+    aplicacao: "https://antoniobemjunior.github.io/alura-plus/",
+    github: "https://github.com/antoniobemjunior/alura-plus"
   },
   {
     titulo: "Calmaria Spa",
     imagem: "https://raw.githubusercontent.com/antoniobemjunior/portfolio/refs/heads/main/projeto6.png",
     descricao: "Landing page de venda de um serviço.",
     description: "Landing page for selling a service.",
-    tecnologias: ["HTML", "CSS", "SCSS", "Sass"]
+    tecnologias: ["HTML", "CSS", "SCSS", "Sass"],
+    aplicacao: "https://antoniobemjunior.github.io/calmaria-spa/",
+    github: "https://github.com/antoniobemjunior/calmaria-spa"
   },
   {
     titulo: "Byte Bank",
     imagem: "https://raw.githubusercontent.com/antoniobemjunior/portfolio/refs/heads/main/projeto5.png",
     descricao: "Gerenciador financeiro.",
     description: "Financial manager.",
-    tecnologias: ["HTML", "CSS", "JavaScript"]
+    tecnologias: ["HTML", "CSS", "JavaScript"],
+    aplicacao: "https://antoniobemjunior.github.io/bytebank/",
+    github: "https://github.com/antoniobemjunior/bytebank"
   },
   {
     titulo: "Alura Newsletter",
     imagem: "https://raw.githubusercontent.com/antoniobemjunior/portfolio/refs/heads/main/projeto2.png",
     descricao: "Portal de newsletter.",
     description: "Newsletter portal.",
-    tecnologias: ["HTML", "CSS"]
+    tecnologias: ["HTML", "CSS"],
+    aplicacao: "https://antoniobemjunior.github.io/alura-newsletter/",
+    github: "https://github.com/antoniobemjunior/alura-newsletter"
   },
   {
     titulo: "Lista de Tarefas",
     imagem: "https://raw.githubusercontent.com/antoniobemjunior/portfolio/refs/heads/main/projeto7.png",
     descricao: "Lista de tarefas com dados persistentes.",
     description: "Task list with persistent data.",
-    tecnologias: ["HTML", "CSS", "JavaScript"]
+    tecnologias: ["HTML", "CSS", "JavaScript"],
+    aplicacao: "https://antoniobemjunior.github.io/lista-de-compras/",
+    github: "https://github.com/antoniobemjunior/lista-de-compras"
   },
   {
     titulo: "Lista de Tarefas",
     imagem: "https://raw.githubusercontent.com/antoniobemjunior/portfolio/refs/heads/main/projeto8.png",
     descricao: "Lista de tarefas com dados persistentes.",
     description: "Task list with persistent data.",
-    tecnologias: ["HTML", "CSS", "JavaScript"]
+    tecnologias: ["HTML", "CSS", "JavaScript"],
+    aplicacao: "https://antoniobemjunior.github.io/todo-list-JAVASCRIPT/",
+    github: "https://github.com/antoniobemjunior/todo-list-JAVASCRIPT"
   }
 ];
 
@@ -144,7 +161,10 @@ const translations = {
     backToTop: "Voltar ao início",
     langButton: "Idioma Inglês",
     themeLight: "Tema Claro",
-    themeDark: "Tema Escuro"
+    themeDark: "Tema Escuro",
+    menuSaibaMais: "Saiba mais",
+    menuAbrirApp: "Abrir aplicação",
+    menuVerGithub: "Ver Github"
   },
   en: {
     nav: { projetos: "Projects", habilidades: "Skills", contato: "Contact", certificados: "Certificates" },
@@ -162,7 +182,10 @@ const translations = {
     backToTop: "Back to home",
     langButton: "Portuguese language",
     themeLight: "Light Theme",
-    themeDark: "Dark Theme"
+    themeDark: "Dark Theme",
+    menuSaibaMais: "Learn more",
+    menuAbrirApp: "Open application",
+    menuVerGithub: "View Github"
   }
 };
 
@@ -203,102 +226,221 @@ function contrastColor(hex) {
   return lum > 0.65 ? "#000" : "#fff";
 }
 
-/* ================== GERAÇÃO DE PROJETOS ================== */
-function gerarProjetos(lista, containerId) {
-  const container = document.getElementById(containerId);
-  if (!container) {
-    console.error(`gerarProjetos: container com id "${containerId}" não encontrado.`);
-    return;
-  }
-  container.innerHTML = "";
+// Novas funções para o menu e a modal
+function toggleMenu(event) {
+    event.stopPropagation();
+    const dropdown = event.currentTarget.nextElementSibling;
+    dropdown.classList.toggle('show');
+}
 
-  lista.forEach((projeto, index) => {
-    const card = document.createElement("div");
-    card.className = "card";
-    card.dataset.index = index + 1;
+function openModal(event, data, type) {
+    event.preventDefault();
+    event.stopPropagation();
+    const modal = document.getElementById('modal-saiba-mais');
+    const modalTitulo = document.getElementById('modal-titulo');
+    const modalDescricao = document.getElementById('modal-descricao');
+    const modalImagem = document.getElementById('modal-imagem');
+    const t = translations[currentLang];
 
-    // Título
-    const titulo = document.createElement("h3");
-    titulo.id = `projeto${index + 1}`;
-    titulo.textContent = projeto.titulo || `Projeto ${index + 1}`;
+    modalTitulo.innerText = data.titulo || (type === 'projeto' ? t.projectsTitle : t.certificatesTitle);
+    modalDescricao.innerText = data[currentLang === 'en' ? 'description' : 'descricao'];
+    modalImagem.src = data[type === 'projeto' ? 'imagem' : 'certificado'];
+    modal.style.display = 'flex';
+}
 
-    // Imagem (usar class para evitar ids duplicados)
-    const img = document.createElement("img");
-    img.className = "projeto-foto";
-    img.src = projeto.imagem || "";
-    img.alt = projeto.titulo || `Projeto ${index + 1}`;
-    img.loading = "lazy";
+function closeModal() {
+    const modal = document.getElementById('modal-saiba-mais');
+    modal.style.display = 'none';
+}
 
-    // Descrição
-    const descricao = document.createElement("p");
-    descricao.id = `projeto${index + 1}-descricao`;
-    descricao.className = "projeto-descricao";
-    descricao.textContent = projeto.descricao || "";
-
-    // Tecnologias / badges
-    const techContainer = document.createElement("div");
-    techContainer.className = "project-techs";
-    (projeto.tecnologias || []).forEach(tech => {
-      const span = document.createElement("span");
-      span.className = "badge";
-      span.textContent = tech;
-
-      if (techColors[tech]) {
-        span.style.backgroundColor = techColors[tech];
-        span.style.color = contrastColor(techColors[tech]);
-      }
-      techContainer.appendChild(span);
+// Fecha o menu e a modal se o usuário clicar fora deles
+window.addEventListener('click', function(event) {
+    const dropdowns = document.querySelectorAll('.dropdown-menu');
+    dropdowns.forEach(dropdown => {
+        if (dropdown.classList.contains('show')) {
+            dropdown.classList.remove('show');
+        }
     });
 
-    // Monta
-    card.appendChild(titulo);
-    card.appendChild(img);
-    card.appendChild(descricao);
-    card.appendChild(techContainer);
+    const modal = document.getElementById('modal-saiba-mais');
+    if (event.target === modal) {
+        closeModal();
+    }
+});
 
-    container.appendChild(card);
-  });
+
+/* ================== GERAÇÃO DE PROJETOS ================== */
+function gerarProjetos(lista, containerId) {
+    const container = document.getElementById(containerId);
+    if (!container) {
+        console.error(`gerarProjetos: container com id "${containerId}" não encontrado.`);
+        return;
+    }
+    container.innerHTML = "";
+
+    const t = translations[currentLang];
+
+    lista.forEach((projeto, index) => {
+        const card = document.createElement("div");
+        card.className = "card";
+        card.dataset.index = index + 1;
+
+        const cardHeader = document.createElement("div");
+        cardHeader.className = "card-header";
+
+        // Título
+        const titulo = document.createElement("h3");
+        titulo.id = `projeto${index + 1}`;
+        titulo.textContent = projeto.titulo || `Projeto ${index + 1}`;
+
+        // Menu de 3 pontos
+        const menuContainer = document.createElement("div");
+        menuContainer.className = "menu-container";
+
+        const menuBtn = document.createElement("button");
+        menuBtn.className = "menu-btn";
+        menuBtn.innerHTML = "&#8942;";
+        menuBtn.onclick = toggleMenu;
+
+        const dropdownMenu = document.createElement("ul");
+        dropdownMenu.className = "dropdown-menu";
+
+        const saibaMaisItem = document.createElement("li");
+        const saibaMaisLink = document.createElement("a");
+        saibaMaisLink.href = "#";
+        saibaMaisLink.innerText = t.menuSaibaMais;
+        saibaMaisLink.onclick = (e) => openModal(e, projeto, 'projeto');
+        saibaMaisItem.appendChild(saibaMaisLink);
+
+        const abrirAppItem = document.createElement("li");
+        const abrirAppLink = document.createElement("a");
+        abrirAppLink.href = projetos[index].aplicacao;
+        abrirAppLink.target="_blank";
+        abrirAppLink.innerText = t.menuAbrirApp;
+        abrirAppItem.appendChild(abrirAppLink);
+
+        const verGithubItem = document.createElement("li");
+        const verGithubLink = document.createElement("a");
+        verGithubLink.href = projetos[index].github;
+        verGithubLink.target="_blank";
+        verGithubLink.innerText = t.menuVerGithub;
+        verGithubItem.appendChild(verGithubLink);
+
+        dropdownMenu.appendChild(saibaMaisItem);
+        dropdownMenu.appendChild(abrirAppItem);
+        dropdownMenu.appendChild(verGithubItem);
+
+        menuContainer.appendChild(menuBtn);
+        menuContainer.appendChild(dropdownMenu);
+
+        cardHeader.appendChild(titulo);
+        cardHeader.appendChild(menuContainer);
+        card.appendChild(cardHeader);
+
+        // Imagem
+        const img = document.createElement("img");
+        img.className = "projeto-foto";
+        img.src = projeto.imagem || "";
+        img.alt = projeto.titulo || `Projeto ${index + 1}`;
+        img.loading = "lazy";
+        card.appendChild(img);
+
+        // Descrição
+        const descricao = document.createElement("p");
+        descricao.id = `projeto${index + 1}-descricao`;
+        descricao.className = "projeto-descricao";
+        descricao.textContent = projeto.descricao || "";
+        card.appendChild(descricao);
+
+        // Tecnologias / badges
+        const techContainer = document.createElement("div");
+        techContainer.className = "project-techs";
+        (projeto.tecnologias || []).forEach(tech => {
+            const span = document.createElement("span");
+            span.className = "badge";
+            span.textContent = tech;
+
+            if (techColors[tech]) {
+                span.style.backgroundColor = techColors[tech];
+                span.style.color = contrastColor(techColors[tech]);
+            }
+            techContainer.appendChild(span);
+        });
+        card.appendChild(techContainer);
+
+        container.appendChild(card);
+    });
 }
 
 /* ================== GERAÇÃO DE CERTIFICADOS ================== */
 function gerarCertificados(lista, containerId) {
-  const container = document.getElementById(containerId);
-  if (!container) {
-    console.error(`gerarCertificados: container com id "${containerId}" não encontrado.`);
-    return;
-  }
-  container.innerHTML = "";
+    const container = document.getElementById(containerId);
+    if (!container) {
+        console.error(`gerarCertificados: container com id "${containerId}" não encontrado.`);
+        return;
+    }
+    container.innerHTML = "";
 
-  lista.forEach((certificado, index) => {
-    const card = document.createElement("div");
-    card.className = "card";
-    card.dataset.index = index + 1;
+    const t = translations[currentLang];
 
-    // Título
-    const titulo = document.createElement("h3");
-    titulo.id = `certificado${index + 1}`;
-    titulo.textContent = certificado.titulo || `Certificado ${index + 1}`;
+    lista.forEach((certificado, index) => {
+        const card = document.createElement("div");
+        card.className = "card";
+        card.dataset.index = index + 1;
 
-    // Imagem (usar class para evitar ids duplicados)
-    const img = document.createElement("img");
-    img.className = "certificado";
-    img.src = certificado.certificado || "";
-    img.alt = certificado.titulo || `Certificado ${index + 1}`;
-    img.loading = "lazy";
+        const cardHeader = document.createElement("div");
+        cardHeader.className = "card-header";
 
-    // Descrição
-    const descricao = document.createElement("p");
-    descricao.id = `certificado${index + 1}-descricao`;
-    descricao.className = "certificado-descricao";
-    descricao.textContent = certificado.descricao || "";
+        // Título
+        const titulo = document.createElement("h3");
+        titulo.id = `certificado${index + 1}`;
+        titulo.textContent = certificado.titulo || `Certificado ${index + 1}`;
 
-    // Monta
-    card.appendChild(titulo);
-    card.appendChild(img);
-    card.appendChild(descricao);
+        // Menu de 3 pontos
+        const menuContainer = document.createElement("div");
+        menuContainer.className = "menu-container";
 
-    container.appendChild(card);
-  });
+        const menuBtn = document.createElement("button");
+        menuBtn.className = "menu-btn";
+        menuBtn.innerHTML = "&#8942;";
+        menuBtn.onclick = toggleMenu;
+
+        const dropdownMenu = document.createElement("ul");
+        dropdownMenu.className = "dropdown-menu";
+
+        const saibaMaisItem = document.createElement("li");
+        const saibaMaisLink = document.createElement("a");
+        saibaMaisLink.href = "#";
+        saibaMaisLink.innerText = t.menuSaibaMais;
+        saibaMaisLink.onclick = (e) => openModal(e, certificado, 'certificado');
+        saibaMaisItem.appendChild(saibaMaisLink);
+
+        dropdownMenu.appendChild(saibaMaisItem);
+
+        menuContainer.appendChild(menuBtn);
+        menuContainer.appendChild(dropdownMenu);
+
+        cardHeader.appendChild(titulo);
+        cardHeader.appendChild(menuContainer);
+        card.appendChild(cardHeader);
+
+        // Imagem
+        const img = document.createElement("img");
+        img.className = "certificado";
+        img.src = certificado.certificado || "";
+        img.alt = certificado.titulo || `Certificado ${index + 1}`;
+        img.loading = "lazy";
+        card.appendChild(img);
+
+        // Descrição
+        const descricao = document.createElement("p");
+        descricao.id = `certificado${index + 1}-descricao`;
+        descricao.className = "certificado-descricao";
+        descricao.textContent = certificado.descricao || "";
+        card.appendChild(descricao);
+
+        container.appendChild(card);
+    });
 }
 
 /* ================== INICIALIZAÇÃO ================== */
@@ -327,7 +469,10 @@ document.addEventListener("DOMContentLoaded", () => {
     linkedinText: document.getElementById("linkedin-text"),
     githubText: document.getElementById("github-text"),
     footer: document.getElementById("footer"),
-    links: document.querySelectorAll("a[data-target]")
+    links: document.querySelectorAll("a[data-target]"),
+    hamburgerBtn: document.querySelector(".hamburger-menu-btn"),
+    threeDotsBtn: document.querySelector(".three-dots-menu-btn"),
+    navLeft: document.getElementById("nav-left"),
   };
 
   gerarProjetos(projetos, "projetos-container");
@@ -407,8 +552,45 @@ document.addEventListener("DOMContentLoaded", () => {
     if (el.footer) el.footer.innerText = t.footer;
     if (el.backToTopBtn) el.backToTopBtn.innerText = t.backToTop;
     if (el.langToggle) el.langToggle.innerText = t.langButton;
-    if (el.themeToggle) el.themeToggle.innerText = document.body.classList.contains("dark-mode") ? t.themeLight : t.themeDark;
+    if (el.themeToggle) {
+        if(document.body.classList.contains("dark-mode")){
+            document.getElementById("themeToggle").style.borderColor = "rgb(255, 255, 255)";
+            document.getElementById("themeToggle").style.color = "rgb(255, 255, 255)";
+            document.getElementById("langToggle").style.borderColor = "rgb(255, 255, 255)";
+            document.getElementById("langToggle").style.color = "rgb(255, 255, 255)";
+        }else{
+            document.getElementById("themeToggle").style.borderColor = "rgb(0, 0, 0)";
+            document.getElementById("themeToggle").style.color = "rgb(0, 0, 0)";
+            document.getElementById("langToggle").style.borderColor = "rgb(0, 0, 0)";
+            document.getElementById("langToggle").style.color = "rgb(0, 0, 0)";
+        }
+        el.themeToggle.innerText = document.body.classList.contains("dark-mode") ? t.themeLight : t.themeDark;
+    }
   }
+  // Eventos de clique para os menus
+  if(el.hamburgerBtn) {
+      el.hamburgerBtn.addEventListener("click", () => {
+      if(el.navLeft) el.navLeft.classList.toggle("open");
+      if(el.menuItems) el.menuItems.classList.remove("open");
+    });
+  }
+
+  if(el.threeDotsBtn) {
+    el.threeDotsBtn.addEventListener("click", () => {
+      if(el.menuItems) el.menuItems.classList.toggle("open");
+      if(el.navLeft) el.navLeft.classList.remove("open");
+    });
+  }
+
+  document.addEventListener("click", (event) => {
+    if(el.navLeft && el.hamburgerBtn && !el.navLeft.contains(event.target) && !el.hamburgerBtn.contains(event.target)) {
+      el.navLeft.classList.remove("open");
+    }
+    if(el.menuItems && el.threeDotsBtn && !el.menuItems.contains(event.target) && !el.threeDotsBtn.contains(event.target)) {
+      el.menuItems.classList.remove("open");
+    }
+  });
+
 
   // IntersectionObserver para nav visível e animação dos cards
   const observer = new IntersectionObserver((entries) => {
@@ -434,6 +616,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (targetEl) {
           e.preventDefault();
           targetEl.scrollIntoView({ behavior: "smooth" });
+          el.navLeft.classList.remove("open");
         }
       });
     });
