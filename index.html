@@ -7,17 +7,13 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+
+  <!-- Navegação -->
   <nav id="nav">
-    <div class="nav-left">
-      <a href="#inicio" data-target="#inicio" id="nav-inicio">Início</a>
+    <div id="nav-left">
       <a href="#projetos" data-target="#projetos" id="nav-projetos">Projetos</a>
       <a href="#habilidades" data-target="#habilidades" id="nav-habilidades">Habilidades</a>
       <a href="#contato" data-target="#contato" id="nav-contato">Contato</a>
-    </div>
-    <div class="menu-toggle" id="menu-toggle">
-      <span></span>
-      <span></span>
-      <span></span>
     </div>
     <ul class="menu-items" id="menu-items">
       <li><button class="theme-toggle" id="themeToggle">Tema Escuro</button></li>
@@ -25,70 +21,77 @@
     </ul>
   </nav>
 
+  <div id="nav-trigger"></div>
+
+  <!-- Cabeçalho -->
   <header id="inicio">
-    <h1 id="header-title">Olá sou Antônio de Bem Junior, um desenvolvedor de sistemas trainee!</h1>
-    <div id="nav-trigger"></div>
+    <h1 id="header-title">Olá, sou Antônio de Bem Junior, um desenvolvedor de sistemas trainee!</h1>
   </header>
 
+  <!-- Seção: Projetos -->
   <section id="projetos">
     <h2 id="projects-title">Projetos</h2>
-    <div class="cards">
-      <div class="card"><h3 id="projeto1">Projeto 1</h3><p id="projeto1-descricao">Descrição do projeto 1.</p></div>
-      <div class="card"><h3 id="projeto2">Projeto 2</h3><p id="projeto2-descricao">Descrição do projeto 2.</p></div>
-      <div class="card"><h3 id="projeto3">Projeto 3</h3><p id="projeto3-descricao">Descrição do projeto 3.</p></div>
-      <div class="card"><h3 id="projeto4">Projeto 4</h3><p id="projeto4-descricao">Descrição do projeto 4.</p></div>
-      <div class="card"><h3 id="projeto5">Projeto 5</h3><p id="projeto5-descricao">Descrição do projeto 5.</p></div>
-      <div class="card"><h3 id="projeto6">Projeto 6</h3><p id="projeto6-descricao">Descrição do projeto 6.</p></div>
-      <div class="card"><h3 id="projeto7">Projeto 7</h3><p id="projeto7-descricao">Descrição do projeto 7.</p></div>
-      <div class="card"><h3 id="projeto8">Projeto 8</h3><p id="projeto8-descricao">Descrição do projeto 8.</p></div>
-      <div class="card"><h3 id="projeto9">Projeto 9</h3><p id="projeto9-descricao">Descrição do projeto 9.</p></div>
-    </div>
+    <div class="cards" id="projetos-container"></div>
   </section>
 
+  <!-- Seção: Habilidades -->
   <section id="habilidades">
     <h2 id="skills-title">Habilidades</h2>
-    <div class="cards">
-      <div class="card"><h3>Frontend</h3><p id="frontend-itens">HTML, CSS e JavaScript.</p></div>
-      <div class="card"><h3>Backend</h3><p id="backend-itens">C, C++, C#, Python e SQL.</p></div>
-      <div class="card"><h3 id="outras">Outras</h3><p></p></div>
+    <div class="skills-cards">
+      <div class="card">
+        <h3>Frontend</h3>
+        <p id="frontend-itens">HTML, CSS e JavaScript.</p>
+      </div>
+      <div class="card">
+        <h3>Backend</h3>
+        <p id="backend-itens">C, C++, C#, Python, SQL e TypeScript.</p>
+      </div>
+      <div class="card">
+        <h3 id="outras">Outras</h3>
+        <p>Visual Studio Code</p>
+      </div>
     </div>
   </section>
 
+  <!-- Seção: Contato -->
   <section id="contato" class="contato">
     <h2 id="contact-title">Contato</h2>
-    <br />
-    <img src="https://avatars.githubusercontent.com/u/9932596?v=4" alt="Sua Foto" />
-    <p id="email-label">
-      E-mail:
-      <a href="mailto:antonio.bem.junior@gmail.com">antonio.bem.junior@gmail.com</a>
-    </p>
-    <p id="linkedin-label">
-      LinkedIn:
-      <a
-        id="linkedin-text"
-        href="https://www.linkedin.com/in/antonio-romero-ferreira-de-bem-junior/"
-        >Acessar</a
-      >
-    </p>
-    <p id="github-label">
-      Github:
-      <a id="github-text" href="https://github.com/antoniobemjunior">Acessar</a>
-    </p>
-    <p id="whatsapp-label">
-      WhatsApp:
-      <a href="https://wa.me/5547984296553?text=Ol%C3%A1%20Ant%C3%B4nio%2C%20tudo%20bem%3F"
-        >+55 47 9 8429-6553</a
-      >
-    </p>
+    <div class="container">
+      <!-- Foto de Perfil -->
+      <div class="foto">
+        <img src="https://avatars.githubusercontent.com/u/9932596?v=4"/>
+      </div>
+
+      <!-- Informações de Contato -->
+      <div class="contato">
+        <div class="dados">
+          <p id="email-label">E-mail:</p>
+          <a href="mailto:antonio.bem.junior@gmail.com">antonio.bem.junior@gmail.com</a>
+        </div>
+        <div class="dados">
+          <p id="linkedin-label">LinkedIn:</p>
+          <a id="linkedin-text" href="https://www.linkedin.com/in/antonio-romero-ferreira-de-bem-junior/">Acessar</a>
+        </div>
+        <div class="dados">
+          <p id="github-label">Github:</p>
+          <a id="github-text" href="https://github.com/antoniobemjunior">Acessar</a>
+        </div>
+        <div class="dados">
+          <p id="whatsapp-label">WhatsApp:</p>
+          <a href="https://wa.me/5547984296553?text=Ol%C3%A1%20Ant%C3%B4nio%2C%20tudo%20bem%3F">+55 47 9 8429-6553</a>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <footer id="footer">
-    © 2025 Antonio de Bem Junior. Desenvolvido com ♥.
-  </footer>
+  <!-- Rodapé -->
+  <footer id="footer">© 2025 Antonio de Bem Junior. Desenvolvido com ♥.</footer>
 
-  <!-- Botão voltar ao topo -->
+  <!-- Botão: Voltar ao topo -->
   <button id="backToTop" title="Voltar ao início">Voltar ao início</button>
 
+  <!-- Scripts -->
   <script src="script.js"></script>
+
 </body>
 </html>
