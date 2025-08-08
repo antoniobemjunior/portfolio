@@ -154,6 +154,13 @@ section h2 {
   box-shadow: 0 4px 8px var(--cor-card-sombra);
 }
 
+.card img.certificado {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid var(--cor-card-sombra);
+  box-shadow: 0 4px 8px var(--cor-card-sombra);
+}
+
 .card h3 {
   margin: 0 0 0.5rem;
   font-size: var(--font-size-project);

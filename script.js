@@ -1,22 +1,4 @@
 
-/**
- * portfolio.js
- * Arquivo JavaScript completo para gerar os cards de projeto dinamicamente
- * e inicializar comportamentos de UI (tradução, tema, observer, scroll suave).
- *
- * Principais correções/recursos:
- * - Gera qualquer número de projetos dinamicamente.
- * - Verificações defensivas para evitar erros quando elementos não existem.
- * - Cores automáticas para badges com cálculo de contraste para texto.
- * - Usa 'class' nas imagens (não repete ids) e 'id' só para títulos/descrições.
- * - Inicialização feita dentro de DOMContentLoaded.
- *
- * Coloque este arquivo e referencie no HTML:
- * <script src="portfolio.js" defer></script>
- *
- * Autoria: Antonio (adaptado)
- */
-
 /* ================== DADOS ================== */
 let currentLang = "pt";
 
@@ -24,56 +6,110 @@ const projetos = [
   {
     titulo: "Alura Books",
     imagem: "https://raw.githubusercontent.com/antoniobemjunior/portfolio/refs/heads/main/projeto1.png",
-    descricao: "Caso de estudo de uma livraria digital.",
+    descricao: "Livraria digital.",
+    description: "Digital bookstore.",
     tecnologias: ["HTML", "CSS"]
   },
   {
-    titulo: "Alura Newsletter",
-    imagem: "https://raw.githubusercontent.com/antoniobemjunior/portfolio/refs/heads/main/projeto2.png",
-    descricao: "Caso de estudo de um portal de newsletter.",
+    titulo: "Wave Cast",
+    imagem: "https://raw.githubusercontent.com/antoniobemjunior/portfolio/refs/heads/main/projeto9.png",
+    descricao: "Plataforma de podcasts.",
+    description: "Podcast platform.",
     tecnologias: ["HTML", "CSS"]
   },
   {
     titulo: "Alura Play",
     imagem: "https://raw.githubusercontent.com/antoniobemjunior/portfolio/refs/heads/main/projeto3.png",
-    descricao: "Caso de estudo de um site de streaming de vídeos.",
+    descricao: "Site de streaming de vídeos.",
+    description: "Video streaming site.",
     tecnologias: ["HTML", "CSS"]
   },
   {
     titulo: "Alura Plus",
     imagem: "https://raw.githubusercontent.com/antoniobemjunior/portfolio/refs/heads/main/projeto4.png",
-    descricao: "Caso de estudo de uma landing page de venda de um serviço.",
+    descricao: "Landing page de venda de um serviço.",
+    description: "Landing page for selling a service.",
     tecnologias: ["HTML", "CSS"]
-  },
-  {
-    titulo: "Byte Bank",
-    imagem: "https://raw.githubusercontent.com/antoniobemjunior/portfolio/refs/heads/main/projeto5.png",
-    descricao: "Caso de estudo de um gerenciador financeiro.",
-    tecnologias: ["HTML", "CSS", "JavaScript"]
   },
   {
     titulo: "Calmaria Spa",
     imagem: "https://raw.githubusercontent.com/antoniobemjunior/portfolio/refs/heads/main/projeto6.png",
-    descricao: "Caso de estudo de uma landing page de venda de um serviço.",
+    descricao: "Landing page de venda de um serviço.",
+    description: "Landing page for selling a service.",
     tecnologias: ["HTML", "CSS", "SCSS", "Sass"]
+  },
+  {
+    titulo: "Byte Bank",
+    imagem: "https://raw.githubusercontent.com/antoniobemjunior/portfolio/refs/heads/main/projeto5.png",
+    descricao: "Gerenciador financeiro.",
+    description: "Financial manager.",
+    tecnologias: ["HTML", "CSS", "JavaScript"]
+  },
+  {
+    titulo: "Alura Newsletter",
+    imagem: "https://raw.githubusercontent.com/antoniobemjunior/portfolio/refs/heads/main/projeto2.png",
+    descricao: "Portal de newsletter.",
+    description: "Newsletter portal.",
+    tecnologias: ["HTML", "CSS"]
   },
   {
     titulo: "Lista de Tarefas",
     imagem: "https://raw.githubusercontent.com/antoniobemjunior/portfolio/refs/heads/main/projeto7.png",
-    descricao: "Caso de estudo de uma lista de tarefas com dados persistentes.",
+    descricao: "Lista de tarefas com dados persistentes.",
+    description: "Task list with persistent data.",
     tecnologias: ["HTML", "CSS", "JavaScript"]
   },
   {
     titulo: "Lista de Tarefas",
     imagem: "https://raw.githubusercontent.com/antoniobemjunior/portfolio/refs/heads/main/projeto8.png",
-    descricao: "Caso de estudo de uma lista de tarefas com dados persistentes.",
+    descricao: "Lista de tarefas com dados persistentes.",
+    description: "Task list with persistent data.",
     tecnologias: ["HTML", "CSS", "JavaScript"]
+  }
+];
+
+const certificados = [
+  {
+    titulo: "Certificado",
+    certificado: "https://raw.githubusercontent.com/antoniobemjunior/portfolio/refs/heads/main/projeto1.png",
+    descricao: "Descrição do certificado",
+    description: "Newsletter portal."
   },
   {
-    titulo: "Wave Cast",
-    imagem: "https://raw.githubusercontent.com/antoniobemjunior/portfolio/refs/heads/main/projeto9.png",
-    descricao: "Caso de estudo de uma plataforma de podcasts.",
-    tecnologias: ["HTML", "CSS"]
+    titulo: "Certificado",
+    certificado: "https://raw.githubusercontent.com/antoniobemjunior/portfolio/refs/heads/main/projeto1.png",
+    descricao: "Descrição do certificado",
+    description: "Newsletter portal."
+  },
+  {
+    titulo: "Certificado",
+    certificado: "https://raw.githubusercontent.com/antoniobemjunior/portfolio/refs/heads/main/projeto1.png",
+    descricao: "Descrição do certificado",
+    description: "Newsletter portal."
+  },
+  {
+    titulo: "Certificado",
+    certificado: "https://raw.githubusercontent.com/antoniobemjunior/portfolio/refs/heads/main/projeto1.png",
+    descricao: "Descrição do certificado",
+    description: "Newsletter portal."
+  },
+  {
+    titulo: "Certificado",
+    certificado: "https://raw.githubusercontent.com/antoniobemjunior/portfolio/refs/heads/main/projeto1.png",
+    descricao: "Descrição do certificado",
+    description: "Newsletter portal."
+  },
+  {
+    titulo: "Certificado",
+    certificado: "https://raw.githubusercontent.com/antoniobemjunior/portfolio/refs/heads/main/projeto1.png",
+    descricao: "Descrição do certificado",
+    description: "Newsletter portal."
+  },
+  {
+    titulo: "Certificado",
+    certificado: "https://raw.githubusercontent.com/antoniobemjunior/portfolio/refs/heads/main/projeto1.png",
+    descricao: "Descrição do certificado",
+    description: "Newsletter portal."
   }
 ];
 
@@ -93,11 +129,12 @@ const techColors = {
 
 const translations = {
   pt: {
-    nav: { projetos: "Projetos", habilidades: "Habilidades", contato: "Contato" },
+    nav: { projetos: "Projetos", habilidades: "Habilidades", contato: "Contato", certificados: "Certificados" },
     header: "Olá sou Antônio de Bem Junior, um desenvolvedor de sistemas trainee!",
     projectsTitle: "Projetos",
     projectsDescPrefix: "Descrição do projeto",
     skillsTitle: "Habilidades",
+    certificatesTitle: "Certificados",
     frontend: "HTML, CSS e JavaScript.",
     backend: "C, C++, C#, Python, SQL e TypeScript.",
     outras: "Outras",
@@ -110,11 +147,12 @@ const translations = {
     themeDark: "Tema Escuro"
   },
   en: {
-    nav: { projetos: "Projects", habilidades: "Skills", contato: "Contact" },
+    nav: { projetos: "Projects", habilidades: "Skills", contato: "Contact", certificados: "Certificates" },
     header: "Hello I'm Antônio de Bem Junior, a trainee systems developer!",
     projectsTitle: "Projects",
     projectsDescPrefix: "Description of project",
     skillsTitle: "Skills",
+    certificatesTitle: "Certificates",
     frontend: "HTML, CSS and JavaScript.",
     backend: "C, C++, C#, Python, SQL and TypeScript.",
     outras: "Others",
@@ -130,10 +168,6 @@ const translations = {
 
 
 /* ================== UTIL ================== */
-/**
- * Converte hex para RGB.
- * Aceita formatos: #RRGGBB ou #RGB (com ou sem '#').
- */
 function hexToRgb(hex) {
   if (!hex) return null;
   const h = hex.replace("#", "");
@@ -154,10 +188,6 @@ function hexToRgb(hex) {
   return null;
 }
 
-/**
- * Calcula luminância relativa (0..1) a partir de RGB.
- * Fórmula sRGB usada para decidir contraste do texto.
- */
 function relativeLuminance({ r, g, b }) {
   const srgb = [r / 255, g / 255, b / 255].map(c => {
     return c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
@@ -165,9 +195,6 @@ function relativeLuminance({ r, g, b }) {
   return 0.2126 * srgb[0] + 0.7152 * srgb[1] + 0.0722 * srgb[2];
 }
 
-/**
- * Retorna '#000' ou '#fff' dependendo do contraste com a cor de fundo.
- */
 function contrastColor(hex) {
   const rgb = hexToRgb(hex);
   if (!rgb) return "#fff";
@@ -176,8 +203,7 @@ function contrastColor(hex) {
   return lum > 0.65 ? "#000" : "#fff";
 }
 
-
-/* ================== GERAÇÃO DE CARDS ================== */
+/* ================== GERAÇÃO DE PROJETOS ================== */
 function gerarProjetos(lista, containerId) {
   const container = document.getElementById(containerId);
   if (!container) {
@@ -234,6 +260,46 @@ function gerarProjetos(lista, containerId) {
   });
 }
 
+/* ================== GERAÇÃO DE CERTIFICADOS ================== */
+function gerarCertificados(lista, containerId) {
+  const container = document.getElementById(containerId);
+  if (!container) {
+    console.error(`gerarCertificados: container com id "${containerId}" não encontrado.`);
+    return;
+  }
+  container.innerHTML = "";
+
+  lista.forEach((certificado, index) => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.dataset.index = index + 1;
+
+    // Título
+    const titulo = document.createElement("h3");
+    titulo.id = `certificado${index + 1}`;
+    titulo.textContent = certificado.titulo || `Certificado ${index + 1}`;
+
+    // Imagem (usar class para evitar ids duplicados)
+    const img = document.createElement("img");
+    img.className = "certificado";
+    img.src = certificado.certificado || "";
+    img.alt = certificado.titulo || `Certificado ${index + 1}`;
+    img.loading = "lazy";
+
+    // Descrição
+    const descricao = document.createElement("p");
+    descricao.id = `certificado${index + 1}-descricao`;
+    descricao.className = "certificado-descricao";
+    descricao.textContent = certificado.descricao || "";
+
+    // Monta
+    card.appendChild(titulo);
+    card.appendChild(img);
+    card.appendChild(descricao);
+
+    container.appendChild(card);
+  });
+}
 
 /* ================== INICIALIZAÇÃO ================== */
 document.addEventListener("DOMContentLoaded", () => {
@@ -248,10 +314,12 @@ document.addEventListener("DOMContentLoaded", () => {
     menuItems: document.getElementById("menu-items"),
     navProjetos: document.getElementById("nav-projetos"),
     navHabilidades: document.getElementById("nav-habilidades"),
+    navCertificados: document.getElementById("nav-certificados"),
     navContato: document.getElementById("nav-contato"),
     headerTitle: document.getElementById("header-title"),
     projectsTitle: document.getElementById("projects-title"),
     skillsTitle: document.getElementById("skills-title"),
+    certificatesTitle: document.getElementById("certificates-title"),
     frontendItens: document.getElementById("frontend-itens"),
     backendItens: document.getElementById("backend-itens"),
     outras: document.getElementById("outras"),
@@ -262,8 +330,8 @@ document.addEventListener("DOMContentLoaded", () => {
     links: document.querySelectorAll("a[data-target]")
   };
 
-  // 1) Gerar projetos dinamicamente (container id usado no HTML: 'projetos-container')
   gerarProjetos(projetos, "projetos-container");
+  gerarCertificados(certificados, "certificados-container");
 
   // 2) Agora que os cards existem, capturamos referências dependentes
   el.cards = document.querySelectorAll(".card");
@@ -272,6 +340,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const projectTitles = Array.from({ length: projectCount }, (_, i) => document.getElementById(`projeto${i + 1}`));
   const projectDescs = Array.from({ length: projectCount }, (_, i) => document.getElementById(`projeto${i + 1}-descricao`));
 
+  const certificatesCount = certificados.length;
+  const certificatesTitles = Array.from({ length: certificatesCount }, (_, i) => document.getElementById(`certificado${i + 1}`));
+  const certificatesDescs = Array.from({ length: certificatesCount }, (_, i) => document.getElementById(`certificado${i + 1}-descricao`));
+
   // Função que aplica tradução e textos dinâmicos
   function applySettings(lang = currentLang) {
     currentLang = lang;
@@ -279,10 +351,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (el.navProjetos) el.navProjetos.innerText = t.nav.projetos;
     if (el.navHabilidades) el.navHabilidades.innerText = t.nav.habilidades;
+    if (el.navCertificados) el.navCertificados.innerText = t.nav.certificados;
     if (el.navContato) el.navContato.innerText = t.nav.contato;
     if (el.headerTitle) el.headerTitle.innerText = t.header;
     if (el.projectsTitle) el.projectsTitle.innerText = t.projectsTitle || t.projectsTitle;
     if (el.skillsTitle) el.skillsTitle.innerText = t.skillsTitle;
+    if (el.certificatesTitle) el.certificatesTitle.innerText = t.certificatesTitle;
 
     // Para títulos/descrições de projetos: se quiser usar traduções específicas,
     // adicione arrays t.projects e t.projectsDesc; caso contrário usamos os dados em `projetos`.
@@ -293,10 +367,33 @@ document.addEventListener("DOMContentLoaded", () => {
       else p.innerText = projetos[i] ? projetos[i].titulo : `Projeto ${i + 1}`;
     });
 
+    certificatesTitles.forEach((c, i) => {
+      if (!c) return;
+      // Prioriza título traduzido (se existir) — senão usa o projeto real
+      if (t.certificates && t.certificates[i]) p.innerText = t.certificates[i];
+      else c.innerText = certificados[i] ? certificados[i].titulo : `Certificado ${i + 1}`;
+    });
+
     projectDescs.forEach((d, i) => {
       if (!d) return;
-      if (t.projectsDesc && t.projectsDesc[i]) d.innerText = t.projectsDesc[i];
+      if (projetos[i].description) {
+        if(lang === "pt")
+          d.innerText = projetos[i].descricao;
+        else
+          d.innerText = projetos[i].description;
+      }
       else d.innerText = projetos[i] ? projetos[i].descricao : `${t.projectsDescPrefix || ""} ${i + 1}.`;
+    });
+
+    certificatesDescs.forEach((d, i) => {
+      if (!d) return;
+      if (projetos[i].description) {
+        if(lang === "pt")
+          d.innerText = certificados[i].descricao;
+        else
+          d.innerText = certificados[i].description;
+      }
+      else d.innerText = certificados[i] ? certificados[i].descricao : `${t.certificatesDescPrefix || ""} ${i + 1}.`;
     });
 
     if (el.frontendItens) el.frontendItens.innerText = t.frontend;
@@ -365,18 +462,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Menu mobile / clique fora
-  if (el.menuToggle && el.menuItems) {
-    el.menuToggle.addEventListener("click", () => el.menuItems.classList.toggle("active"));
-    document.addEventListener("click", e => {
-      if (!el.menuItems.contains(e.target) && !el.menuToggle.contains(e.target)) {
-        el.menuItems.classList.remove("active");
-      }
-    });
-  }
-
-  // Aplicar configurações iniciais
   applySettings();
 
-  console.info("portfolio.js inicializado — projetos gerados:", projetos.length);
+  console.info("Projetos:", projetos.length);
+  console.info("Certificados:", certificados.length);
 });
