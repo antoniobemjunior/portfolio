@@ -1,113 +1,183 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Portfólio – Antonio de Bem Junior</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portfólio – Antonio de Bem Junior</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <nav id="nav">
+      <button class="hamburger-menu-btn" aria-label="Abrir menu de navegação">
+        <div class="hamburger-bar"></div>
+        <div class="hamburger-bar"></div>
+        <div class="hamburger-bar"></div>
+      </button>
+      <div id="nav-left">
+        <a href="#projetos" data-target="#projetos" id="nav-projetos"
+          >Projetos</a
+        >
+        <a href="#habilidades" data-target="#habilidades" id="nav-habilidades"
+          >Habilidades</a
+        >
+        <a
+          href="#certificados"
+          data-target="#certificados"
+          id="nav-certificados"
+          >Certificados</a
+        >
+        <a href="#sobre" data-target="#sobre" id="nav-sobre">Sobre mim</a>
+        <a href="#contato" data-target="#contato" id="nav-contato">Contato</a>
+      </div>
 
-  <nav id="nav">
-    <button class="hamburger-menu-btn" aria-label="Abrir menu de navegação">
-      <div class="hamburger-bar"></div>
-      <div class="hamburger-bar"></div>
-      <div class="hamburger-bar"></div>
-    </button>
-    <div id="nav-left">
-      <a href="#projetos" data-target="#projetos" id="nav-projetos">Projetos</a>
-      <a href="#habilidades" data-target="#habilidades" id="nav-habilidades">Habilidades</a>
-      <a href="#certificados" data-target="#certificados" id="nav-certificados">Certificados</a>
-      <a href="#contato" data-target="#contato" id="nav-contato">Contato</a>
+      <button class="three-dots-menu-btn" aria-label="Opções de tema e idioma">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </button>
+      <ul class="menu-items" id="menu-items">
+        <li>
+          <button class="theme-toggle" id="themeToggle">Tema Escuro</button>
+        </li>
+        <li>
+          <button class="lang-toggle" id="langToggle">Idioma Inglês</button>
+        </li>
+      </ul>
+    </nav>
+
+    <div id="nav-trigger"></div>
+
+    <header id="inicio">
+      <h1 id="header-title">
+        Olá, sou Antônio de Bem Junior, um desenvolvedor de sistemas trainee!
+      </h1>
+    </header>
+
+    <section id="projetos">
+      <h2 id="projects-title">Projetos</h2>
+      <div class="cards" id="projetos-container"></div>
+    </section>
+
+    <section id="habilidades">
+      <h2 id="skills-title">Habilidades</h2>
+      <div class="skills-cards">
+        <div class="card">
+          <h3>Frontend</h3>
+          <p id="frontend-itens">HTML, CSS e JavaScript.</p>
+        </div>
+        <div class="card">
+          <h3>Backend</h3>
+          <p id="backend-itens">C, C++, C#, Python, SQL e TypeScript.</p>
+        </div>
+        <div class="card">
+          <h3 id="outras">Outras</h3>
+          <p>Visual Studio Code</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="certificados">
+      <h2 id="certificates-title">Certificados</h2>
+      <div class="cards" id="certificados-container"></div>
+    </section>
+
+    <section id="sobre">
+      <h2 id="about-title">Sobre mim</h2>
+      <p
+        id="about-text"
+        style="font-size: 20px; align-items: center; text-align: justify"
+      >
+        Oi!
+        <span style="font-size: 25px; font-weight: bold">Eu sou o Antônio</span
+        >, e a minha história é um pouco diferente. Depois de me formar em
+        Engenharia de Produção em 2018, percebi que minha
+        <span style="font-size: 25px; font-weight: bold">paixão</span> de
+        verdade estava no
+        <span style="font-size: 25px; font-weight: bold"
+          >mundo da tecnologia</span
+        >. Em 2024, decidi dar um novo rumo à minha carreira e me joguei de
+        cabeça no desenvolvimento. Para me profissionalizar, mergulhei nos
+        estudos da
+        <a
+          style="font-size: 25px; font-weight: bold"
+          href="https://www.alura.com.br/"
+          target="_blank"
+          >Alura</a
+        >, uma das plataformas de ensino mais incríveis do Brasil. Toda essa
+        dedicação deu frutos e, em 2025, tive a oportunidade de atuar como
+        <span style="font-size: 25px; font-weight: bold"
+          >Desenvolvedor de Sistemas Trainee por 7 meses</span
+        >, uma experiência que me ensinou muito. Minha grande paixão é
+        <span style="font-size: 25px; font-weight: bold">automação</span> —
+        sério, tenho muito orgulho de ter transformado todo o meu apartamento em
+        uma casa inteligente! Agora, meu foco é claro: me tornar um
+        <span style="font-size: 25px; font-weight: bold"
+          >desenvolvedor full stack</span
+        >
+        completo. Estou sempre em busca de novos desafios e pronto para criar
+        soluções inovadoras. <br /><br />
+        <span style="font-size: 25px; font-weight: bold">Vamos conversar?</span>
+      </p>
+    </section>
+
+    <section id="contato" class="contato">
+      <h2 id="contact-title">Contato</h2>
+      <div class="container">
+        <div class="foto">
+          <img src="https://avatars.githubusercontent.com/u/9932596?v=4" />
+        </div>
+
+        <div class="contato">
+          <div class="dados">
+            <p id="email-label">E-mail:</p>
+            <a href="mailto:antonio.bem.junior@gmail.com"
+              >antonio.bem.junior@gmail.com</a
+            >
+          </div>
+          <div class="dados">
+            <p id="linkedin-label">LinkedIn:</p>
+            <a
+              id="linkedin-text"
+              href="https://www.linkedin.com/in/antonio-romero-ferreira-de-bem-junior/"
+              >Acessar</a
+            >
+          </div>
+          <div class="dados">
+            <p id="github-label">Github:</p>
+            <a id="github-text" href="https://github.com/antoniobemjunior"
+              >Acessar</a
+            >
+          </div>
+          <div class="dados">
+            <p id="whatsapp-label">WhatsApp:</p>
+            <a
+              href="https://wa.me/5547984296553?text=Ol%C3%A1%20Ant%C3%B4nio%2C%20tudo%20bem%3F"
+              >+55 47 9 8429-6553</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer id="footer">
+      © 2025 Antonio de Bem Junior. Desenvolvido com ♥.
+    </footer>
+
+    <button id="backToTop" title="Voltar ao início">Voltar ao início</button>
+
+    <div id="modal-saiba-mais">
+      <div id="modal-dados">
+        <h3 id="modal-titulo"></h3>
+        <p id="modal-descricao"></p>
+        <div id="modal-botoes">
+          <a id="modal-app">Abrir aplicação</a>
+          <a id="modal-github">Ver github</a>
+          <a id="modal-fechar">Fechar</a>
+        </div>
+        <img id="modal-imagem" />
+      </div>
     </div>
 
-    <button class="three-dots-menu-btn" aria-label="Opções de tema e idioma">
-      <div class="dot"></div>
-      <div class="dot"></div>
-      <div class="dot"></div>
-    </button>
-    <ul class="menu-items" id="menu-items">
-      <li><button class="theme-toggle" id="themeToggle">Tema Escuro</button></li>
-      <li><button class="lang-toggle" id="langToggle">Idioma Inglês</button></li>
-    </ul>
-  </nav>
-
-  <div id="nav-trigger"></div>
-
-  <header id="inicio">
-    <h1 id="header-title">Olá, sou Antônio de Bem Junior, um desenvolvedor de sistemas trainee!</h1>
-  </header>
-
-  <section id="projetos">
-    <h2 id="projects-title">Projetos</h2>
-    <div class="cards" id="projetos-container"></div>
-  </section>
-
-  <section id="habilidades">
-    <h2 id="skills-title">Habilidades</h2>
-    <div class="skills-cards">
-      <div class="card">
-        <h3>Frontend</h3>
-        <p id="frontend-itens">HTML, CSS e JavaScript.</p>
-      </div>
-      <div class="card">
-        <h3>Backend</h3>
-        <p id="backend-itens">C, C++, C#, Python, SQL e TypeScript.</p>
-      </div>
-      <div class="card">
-        <h3 id="outras">Outras</h3>
-        <p>Visual Studio Code</p>
-      </div>
-    </div>
-  </section>
-
-   <section id="certificados">
-    <h2 id="certificates-title">Certificados</h2>
-    <div class="cards" id="certificados-container"></div>
-  </section>
-
-  <section id="contato" class="contato">
-    <h2 id="contact-title">Contato</h2>
-    <div class="container">
-      <div class="foto">
-        <img src="https://avatars.githubusercontent.com/u/9932596?v=4"/>
-      </div>
-
-      <div class="contato">
-        <div class="dados">
-          <p id="email-label">E-mail:</p>
-          <a href="mailto:antonio.bem.junior@gmail.com">antonio.bem.junior@gmail.com</a>
-        </div>
-        <div class="dados">
-          <p id="linkedin-label">LinkedIn:</p>
-          <a id="linkedin-text" href="https://www.linkedin.com/in/antonio-romero-ferreira-de-bem-junior/">Acessar</a>
-        </div>
-        <div class="dados">
-          <p id="github-label">Github:</p>
-          <a id="github-text" href="https://github.com/antoniobemjunior">Acessar</a>
-        </div>
-        <div class="dados">
-          <p id="whatsapp-label">WhatsApp:</p>
-          <a href="https://wa.me/5547984296553?text=Ol%C3%A1%20Ant%C3%B4nio%2C%20tudo%20bem%3F">+55 47 9 8429-6553</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer id="footer">© 2025 Antonio de Bem Junior. Desenvolvido com ♥.</footer>
-
-  <button id="backToTop" title="Voltar ao início">Voltar ao início</button>
-
-  <div id="modal-saiba-mais" class="modal-overlay">
-      <div class="modal-content">
-          <span class="close-btn" onclick="closeModal()">&times;</span>
-          <h3 id="modal-titulo"></h3>
-          <p id="modal-descricao"></p>
-          <img id="modal-imagem" src="" alt="Imagem do projeto">
-      </div>
-  </div>
-
-  <script src="script.js"></script>
-
-</body>
+    <script type="module" src="main.js"></script>
+  </body>
 </html>

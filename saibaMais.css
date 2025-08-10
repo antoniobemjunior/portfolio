@@ -1,0 +1,123 @@
+* {
+  box-sizing: border-box;
+}
+
+#modal-saiba-mais {
+  position: fixed;
+  inset: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(4px);
+  z-index: 100000;
+  padding: 16px;
+  overflow: auto;
+}
+
+#modal-saiba-mais.open {
+  display: flex;
+}
+
+#modal-dados {
+  background-color: #fff;
+  width: min(1920px, 90vw);
+  height: min(1080px, 80vh);
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  display: grid;
+  align-items: stretch;
+  gap: 2px;
+  grid-template-columns: minmax(280px, 1fr) 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "modal-titulo modal-imagem"
+    "modal-descricao modal-imagem"
+    "modal-botoes modal-imagem";
+}
+
+#modal-titulo {
+  grid-area: modal-titulo;
+  margin: 0;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #222;
+  display: flex;
+  justify-content: center;
+}
+
+#modal-descricao {
+  grid-area: modal-descricao;
+  margin: 0;
+  font-size: 1.05rem;
+  color: #222;
+  overflow: auto;
+  padding-right: 6px;
+  text-align: justify;
+}
+#modal-botoes {
+  grid-area: modal-botoes;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+}
+
+#modal-botoes a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 5px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  color: #333;
+  min-width: 110px;
+  text-align: center;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+#modal-imagem {
+  grid-area: modal-imagem;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+#modal-imagem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  #modal-dados {
+    width: min(720px, 96vw);
+    height: auto;
+    max-height: 92vh;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto auto;
+    grid-template-areas:
+      "modal-titulo"
+      "modal-descricao"
+      "modal-botoes"
+      "modal-imagem";
+  }
+
+  #modal-imagem {
+    height: 30vh;
+  }
+  #modal-botoes {
+    justify-content: center;
+    flex-wrap: nowrap;
+    font-size: small;
+  }
+}

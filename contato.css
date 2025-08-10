@@ -1,0 +1,35 @@
+section#contato .container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+section#contato .foto img {
+  width: 300px;
+  height: 300px;
+  border-radius: 10px;
+  object-fit: cover;
+  border: 0.1px solid var(--cor-card-sombra);
+  box-shadow: 0 4px 8px var(--cor-card-sombra);
+}
+
+section#contato .contato {
+  max-width: 350px;
+}
+
+section#contato .dados {
+  margin-bottom: 0.75rem;
+}
+
+section#contato .dados p {
+  font-weight: 700;
+  margin: 0 0 0.2rem 0;
+  color: var(--cor-texto);
+}
+
+section#contato .dados a {
+  color: var(--cor-link);
+  word-break: break-word;
+}
