@@ -262,8 +262,8 @@ export const applyDynamicTranslations = (lang) => {
   if (el.langToggle) el.langToggle.innerText = t.langButton;
   if (el.themeToggle) {
     const isDarkMode = document.body.classList.contains("dark-mode");
-    el.themeToggle.innerText = isDarkMode ? t.themeLight : t.themeDark;
-    const color = isDarkMode ? "rgb(255, 255, 255)" : "rgb(0, 0, 0)";
+    el.themeToggle.innerText = isDarkMode ? t.themeDark : t.themeLight;
+    const color = "#0a84ff";
     el.themeToggle.style.borderColor = color;
     el.themeToggle.style.color = color;
     el.langToggle.style.borderColor = color;

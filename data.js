@@ -463,7 +463,7 @@ export const DADOS = {
         sobre: "Sobre mim",
       },
       header:
-        "Olá sou Antônio de Bem Junior, um desenvolvedor de sistemas trainee!",
+        "Olá! Sou Antônio de Bem Junior, estou sempre em busca de novos desafios e pronto para criar soluções inovadoras!",
       projectsTitle: "Projetos",
       projectsDescPrefix: "Descrição do projeto",
       skillsTitle: "Habilidades",
@@ -504,7 +504,7 @@ export const DADOS = {
         certificados: "Certificates",
         sobre: "About me",
       },
-      header: "Hello I'm Antônio de Bem Junior, a trainee systems developer!",
+      header: "Hello! I’m Antônio de Bem Junior, always looking for new challenges and ready to create innovative solutions!",
       projectsTitle: "Projects",
       projectsDescPrefix: "Description of project",
       skillsTitle: "Skills",

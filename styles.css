@@ -7,7 +7,7 @@
 @import url("voltar.css");
 @import url("saibaMais.css");
 
-:root {
+body.dark-mode {
   --cor-fundo: #f8f8f8;
   --cor-texto: #333;
   --cor-secundaria: #555;
@@ -68,7 +68,7 @@ section h2 {
   padding-bottom: 0.5rem;
 }
 
-body.dark-mode {
+:root {
   --cor-fundo: #000000;
   --cor-texto: #ffffff;
   --cor-secundaria: #fff;

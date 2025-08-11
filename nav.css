@@ -114,7 +114,7 @@
 .dot {
   width: 4px;
   height: 4px;
-  background-color: var(--cor-texto);
+  background-color: var(--cor-link);
   border-radius: 50%;
 }
 
