@@ -45,7 +45,7 @@
   box-shadow: 0 2px 6px var(--cor-nav-sombra);
   padding: 0.5rem;
   border-radius: 5px;
-  display: none; /* Oculta por padrão */
+  display: none;
   z-index: 999;
 }
 
@@ -102,6 +102,13 @@
   justify-content: space-around;
   position: absolute;
   right: 1rem;
+}
+
+.theme-toggle,
+.lang-toggle {
+  font-size: 1rem;
+  padding: 7px;
+  cursor: pointer;
 }
 
 .dot {
