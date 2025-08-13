@@ -224,6 +224,7 @@ export const applyDynamicTranslations = (lang) => {
   if (el.navHabilidades) el.navHabilidades.innerText = t.nav.habilidades;
   if (el.navCertificados) el.navCertificados.innerText = t.nav.certificados;
   if (el.navAbout) el.navAbout.innerText = t.nav.sobre;
+  if (el.navCurriculo) el.navCurriculo.innerText = t.nav.curriculo;
   if (el.navContato) el.navContato.innerText = t.nav.contato;
   if (el.headerTitle) el.headerTitle.innerText = t.header;
   if (el.projectsTitle) el.projectsTitle.innerText = t.projectsTitle;

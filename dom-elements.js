@@ -13,6 +13,7 @@ export const getDOMElements = () => {
     navHabilidades: document.getElementById("nav-habilidades"),
     navCertificados: document.getElementById("nav-certificados"),
     navAbout: document.getElementById("nav-sobre"),
+    navCurriculo: document.getElementById("nav-curriculo"),
     navContato: document.getElementById("nav-contato"),
     headerTitle: document.getElementById("header-title"),
     projectsTitle: document.getElementById("projects-title"),

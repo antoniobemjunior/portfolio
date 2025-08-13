@@ -461,6 +461,7 @@ export const DADOS = {
         contato: "Contato",
         certificados: "Certificados",
         sobre: "Sobre mim",
+        curriculo: "Baixa o currículo",
       },
       header:
         "Olá! Sou Antônio de Bem Junior, estou sempre em busca de novos desafios e pronto para criar soluções inovadoras!",
@@ -503,6 +504,7 @@ export const DADOS = {
         contato: "Contact",
         certificados: "Certificates",
         sobre: "About me",
+        curriculo: "Download CV",
       },
       header: "Hello! I’m Antônio de Bem Junior, always looking for new challenges and ready to create innovative solutions!",
       projectsTitle: "Projects",
