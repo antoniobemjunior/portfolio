@@ -11,6 +11,31 @@ import {
 let currentLang = DADOS.currentLang;
 
 document.addEventListener("DOMContentLoaded", () => {
+  const curriculo = document.getElementById("nav-curriculo");
+
+  curriculo.addEventListener("click", function(event) {
+    event.preventDefault();
+
+    let url = "";
+    let filename = "";
+
+    if (currentLang === "pt") {
+      url = "https://raw.githubusercontent.com/antoniobemjunior/portfolio/refs/heads/main/Curriculo%20-%20Antonio%20de%20Bem%20Junior.pdf";
+      filename = "Curriculo - Antonio de Bem Junior.pdf";
+    } else {
+      url = "https://raw.githubusercontent.com/antoniobemjunior/portfolio/refs/heads/main/Curriculo%20-%20Antonio%20de%20Bem%20Junior%20(English).pdf";
+      filename = "Curriculo - Antonio de Bem Junior (English).pdf";
+    }
+
+    // Cria um link temporário
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a); // remove o link depois
+  });
+
   createCardSection(DADOS.projetos, "projetos-container", "projeto");
   createCardSection(DADOS.certificados, "certificados-container", "certificado");
 
@@ -92,3 +117,4 @@ document.addEventListener("DOMContentLoaded", () => {
   console.info("Projetos:", DADOS.projetos.length);
   console.info("Certificados:", DADOS.certificados.length);
 });
+
